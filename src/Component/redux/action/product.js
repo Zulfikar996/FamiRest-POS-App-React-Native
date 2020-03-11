@@ -1,20 +1,26 @@
 import axios from 'axios';
 
-export const getProducts = (activepage, limit) => {
-    // const authorization = localStorage.getItem('token');
-    // const userId = localStorage.getItem("user-id");
-    const page = activepage || 1
-    return{
-        type: 'GET_PRODUCT',
-        payload: axios({
-            method: "GET",
-            url: `http://192.168.1.13:4500/product?page=${page}`,
-            // headers: {
-            //     "authorization": authorization,
-            //     "user-id": userId
-            // }
-        })
+export const getProducts = (name) => {
+    if (name !== undefined){
+            return{
+                type: 'GET_PRODUCT',
+                payload: axios({
+                    method: 'GET',
+                    url: `http://192.168.1.17:4500/product?name=${name}`,
+                })
+        }
     }
+    else{
+        // const page = activepage || 1
+        return{
+            type: 'GET_PRODUCT',
+            payload: axios({
+                method: "GET",
+                url: `http://192.168.1.17:4500/product`,
+            })
+        }
+    }
+    
 }
 
 export const addProduct = (data) => {
@@ -23,7 +29,7 @@ export const addProduct = (data) => {
         payload: axios({
             method: 'POST',
             data:data,
-            url: "http://192.168.1.13:4500/product"
+            url: "http://192.168.1.17:4500/product"
         })
     }
 }
@@ -34,7 +40,7 @@ export const editProduct = (data, propsId) => {
         payload: axios({
             method: 'PATCH',
             data:data,
-            url: `http://192.168.1.13:4500/product/${propsId}`
+            url: `http://192.168.1.17:4500/product/${propsId}`
         })
     }
 }
@@ -44,7 +50,7 @@ export const deleteProduct = (propsId) => {
         type: 'DELETE_PRODUCT',
         payload: axios({
             method: 'DELETE',
-            url: `http://192.168.1.13:4500/product/${propsId}`
+            url: `http://192.168.1.17:4500/product/${propsId}`
         })
     }
 }
@@ -56,7 +62,7 @@ export const filterProduct = (category, name) => {
         type: 'FILTER_PRODUCT',
         payload: axios({
             method: 'GET',
-            url: `http://192.168.1.13:4500/product?name=${name}&category=${category}`,
+            url: `http://192.168.1.17:4500/product?name=${name}&category=${category}`,
             // headers: {
             //     "authorization": authorization,
             //     "user-id": userId

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-import { createBottomTabNavigator } from 'react-navigation-tabs'
+// import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { Provider } from 'react-redux'
 
 import store from './src/Component/redux/store'
@@ -15,8 +15,18 @@ import ProductEdit from './src/Component/Screen/Product/editProduct'
 
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeScreen,
-    Login: LoginScreen,
+    Home: {
+      screen : LoginScreen,
+      navigationOptions:{
+      header : null
+      }
+    },
+    Login: {
+      screen : HomeScreen,
+      navigationOptions:{
+      header : null
+      }
+    },
     Product: ProductScreen,
     AddProduct: AddProduct,
     EditProduct: ProductEdit
