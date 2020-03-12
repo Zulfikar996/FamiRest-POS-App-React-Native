@@ -15,7 +15,6 @@ const product = (state = initialState, action) => {
                 ...state
             }
         case 'GET_PRODUCT_FULFILLED':
-            console.log("hai", action.payload.data)
             return{
                 ...state,
                 products: action.payload.data.result,

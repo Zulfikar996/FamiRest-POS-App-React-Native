@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Container, Content, Form, Item, Input, Button, Text } from 'native-base';
+import { Container, Content, Form, Item, Input, Button, Text } from 'native-base'
+import { Dropdown } from 'react-native-material-dropdown';
 
 import { addProduct } from '../../redux/action/product';
 // import product from '../../redux/reducer/product';
@@ -38,6 +39,13 @@ class AddProduct extends Component{
     }
 
     render(){
+        let cater = [{
+            label:'Food',
+            value: 1
+        },{
+            label: 'Drink',
+            value: 2
+        }]
         return(
             <Container>
                 {/* <Spinner isLoading={this.props.products.isLoading} /> */}

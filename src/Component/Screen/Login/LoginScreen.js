@@ -7,6 +7,7 @@ import axios from 'axios'
 import logomail from '../../../../image/person.png'
 import logopass from '../../../../image/lock.png'
 import logo from '../../../../image/FamiRest.png'
+import {API_URL} from 'react-native-dotenv'
 
 class LoginScreen extends Component{
     static navigationOptions = {
@@ -47,8 +48,9 @@ class LoginScreen extends Component{
   }
 
   onSubmit = (e) => {
+    console.log({API_URL})
     axios
-        .post("http://192.168.1.17:4500/user/login", this.state)
+        .post(`${API_URL}/user/login`, this.state)
         .then(res => {
             console.log(res.data);
             AsyncStorage.setItem('token', res.data.token);

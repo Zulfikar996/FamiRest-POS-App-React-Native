@@ -46,7 +46,29 @@ class HomeScreen extends Component{
         const {products} = this.props
         return(
             <View style={{flex:1}}>
-                <View style={{flex:1, backgroundColor: '#e4b73669'}}>
+                <View style={{ height:54, flexDirection:'row'}}>
+                    <View style={{backgroundColor:'rgb(245, 149, 84)', flex:1, alignItems:'center', justifyContent:'center'}}>
+                        <TouchableOpacity 
+                                style={{borderRadius:15, backgroundColor: 'rgb(245, 149, 84)', padding: 8, justifyContent: 'center', alignItems: 'center', width: 100, marginRight: 20, height:43}} >
+                                    <Text style={{ color: "#fff", fontSize:15 }}>Category</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{backgroundColor:'rgb(245, 149, 84)', flex:1, alignItems:'center', justifyContent:'center'}}>
+                        <TouchableOpacity 
+                                style={{borderRadius:15, backgroundColor: 'rgb(245, 149, 84)', padding: 8, justifyContent: 'center', alignItems: 'center', width: 100, marginRight: 20, height:43}}
+                                onPress={() => this.props.navigation.navigate('Product')}>
+                                    <Text style={{ color: "#fff", fontSize:15 }}>Product</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{backgroundColor:'rgb(245, 149, 84)', flex:1, alignItems:'center', justifyContent:'center'}}>
+                        <TouchableOpacity 
+                                style={{borderRadius:15, backgroundColor: 'rgb(245, 149, 84)', padding: 8, justifyContent: 'center', alignItems: 'center', width: 100, marginRight: 20, height:43}}
+                                onPress={() => this.props.navigation.navigate('Home')}>
+                                    <Text style={{ color: "#fff", fontSize:15 }}>Logout</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={{flex:1, backgroundColor: '#e4b7362e'}}>
                 <View style={{ marginTop: 10, marginLeft: 10, marginBottom: 10}}>
                     <FlatList 
                         data={products.products}
@@ -54,25 +76,6 @@ class HomeScreen extends Component{
                         keyExtractor={(item) => item.id.toString()}
                     />
                 </View>
-                </View>
-                <View style={{backgroundColor: 'blue', height:54, flexDirection:'row'}}>
-                    <View style={{backgroundColor:'blue', flex:1, alignItems:'center', justifyContent:'center'}}>
-                        <Text>category</Text>
-                    </View>
-                    <View style={{backgroundColor:'yellow', flex:1, alignItems:'center', justifyContent:'center'}}>
-                        <TouchableOpacity 
-                                style={{borderRadius:15, backgroundColor: 'rgb(245, 149, 84)', padding: 8, justifyContent: 'center', alignItems: 'center', width: 100, marginRight: 20, height:43}}
-                                onPress={() => this.props.navigation.navigate('Product')}>
-                                    <Text style={{ color: "#fff", fontSize:15 }}>Product</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{backgroundColor:'green', flex:1, alignItems:'center', justifyContent:'center'}}>
-                        <TouchableOpacity 
-                                style={{borderRadius:15, backgroundColor: 'rgb(245, 149, 84)', padding: 8, justifyContent: 'center', alignItems: 'center', width: 100, marginRight: 20, height:43}}
-                                onPress={() => this.props.navigation.navigate('Home')}>
-                                    <Text style={{ color: "#fff", fontSize:15 }}>Logout</Text>
-                        </TouchableOpacity>
-                    </View>
                 </View>
             </View>
         )
